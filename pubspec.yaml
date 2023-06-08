@@ -1,0 +1,41 @@
+name: flutter_application_1
+description: A new Flutter project.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=2.19.2 <3.0.0'
+
+dependencies:
+
+  multi_select_flutter: ^4.0.0
+
+  firebase_database: ^10.0.0
+  firebase_auth: ^4.2.9
+  firebase_core: ^2.7.0
+  cloud_firestore: ^4.5.0
+
+
+  uuid: ^3.0.4
+  flutter:
+    sdk: flutter
+    
+  google_fonts:
+  
+  cupertino_icons: ^1.0.5
+  flutter_chat_ui: ^1.0.5
+  chat_bubbles: ^1.0.0
+  icon_forest: ^1.1.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true    
+  
+  assets:
+    - assets/images/dosemate.jpg
+    - assets/images/background.png
+    - assets/images/DoseMate.png
