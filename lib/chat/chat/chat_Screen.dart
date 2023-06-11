@@ -1,10 +1,7 @@
-
-
 import 'package:chat_gpt_sdk/chat_gpt_sdk.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
-
 import 'Chat_Message.dart';
 import 'threedots.dart';
 
@@ -26,7 +23,7 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
     chatGPT = OpenAI.instance.build(
-        token: "03853604eemsh193b7b5125010fap1eda79jsn4426f95fdeb1",
+        token: "042560f87bmsh8c7720b736a870ap1dae77jsn889e185fd771",
         baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 10)));
     super.initState();
   }
@@ -63,15 +60,18 @@ class _ChatScreenState extends State<ChatScreen> {
     //
     //
 
-    final result = await Dio().get(
-        'https://bard-api.p.rapidapi.com/ask?question=${message.text}?&bard___Secure-1PSID_cookie_value=Wgh7uCaOCjWsBZAS5VtemZhP9IqjqL9kwAQOckMKabwfps1Tz1g8aEgKzMf47vCGhitC5w.',
-        options: Options(headers: {
-          'X-RapidAPI-Host': 'bard-api.p.rapidapi.com',
-          'X-RapidAPI-Key':
-              '03853604eemsh193b7b5125010fap1eda79jsn4426f95fdeb1',
+    final result = await Dio().post(
+        'https://simple-chatgpt-api.p.rapidapi.com/ask',
+        data: {
+          "question": '${message.text}'
+        },
+        options: Options(headers:  {
+          'content-type': 'application/json',
+          'X-RapidAPI-Key': '042560f87bmsh8c7720b736a870ap1dae77jsn889e185fd771',
+          'X-RapidAPI-Host': 'simple-chatgpt-api.p.rapidapi.com'
         }));
     // final response = result.data['']
-    insertNewData('${result.data['response']}', isImage: false);
+    insertNewData('${result.data['answer']}', isImage: false);
   }
 
   void insertNewData(String response, {bool isImage = false}) {
@@ -116,19 +116,20 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("Chatbot"),backgroundColor:const Color.fromARGB(255, 23, 13, 72)),
+        appBar: AppBar( backgroundColor: Color.fromARGB(255, 23, 13, 72),
+            title: const Text("Chatbot")),
         body: SafeArea(
           child: Column(
             children: [
               Flexible(
                   child: ListView.builder(
-                reverse: true,
-                padding: Vx.m8,
-                itemCount: _messages.length,
-                itemBuilder: (context, index) {
-                  return _messages[index];
-                },
-              )),
+                    reverse: true,
+                    padding: Vx.m8,
+                    itemCount: _messages.length,
+                    itemBuilder: (context, index) {
+                      return _messages[index];
+                    },
+                  )),
               if (_isTyping) const ThreeDots(),
               const Divider(
                 height: 1.0,

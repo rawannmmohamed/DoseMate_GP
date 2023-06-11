@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/chat/chat_Screen.dart';
+import 'package:flutter_application_1/chat/chat/chat_Screen.dart';
 import 'package:flutter_application_1/screens/Emergency.dart';
 import 'package:flutter_application_1/screens/login_screen.dart';
 import 'package:flutter_application_1/screens/profile_screen.dart';
@@ -61,15 +61,7 @@ class MenuButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            if (icon is IconData)
-              Padding(
-                padding: const EdgeInsets.only(right: 8),
-                child: Icon(
-                  icon,
-                  size: isSearchButton ? 42 : 56,
-                  color: color,
-                ),
-              ),
+            
             if (icon is Image)
               SizedBox(
                 width: isSearchButton ? 28 : 50,
@@ -77,12 +69,8 @@ class MenuButton extends StatelessWidget {
                 child: icon,
               ),
             const SizedBox(width: 5),
-            Expanded(
-              child: Container(
-                constraints: BoxConstraints(
-                  minWidth: 0,
-                  maxWidth: isSearchButton ? 200 : double.infinity,
-                ),
+           Expanded(
+            
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
@@ -96,7 +84,7 @@ class MenuButton extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
+            
           ],
         ),
       ),
@@ -233,8 +221,8 @@ class HomeScreen extends StatelessWidget {
                               child: MenuButton(
                                 icon: Image.network(
                                   'https://www.careplace.com/images/prescription.png',
-                                  width: 28,
-                                  height: 28,
+                                  width: 10,
+                                  height: 10,
                                 ),
                                 title: 'Drug List',
                                 color: const Color.fromARGB(255, 255, 255, 255),
@@ -292,8 +280,8 @@ class HomeScreen extends StatelessWidget {
                               child: MenuButton(
                                 icon: Image.network(
                                   'https://www.coatresa.com/wp-content/uploads/2018/06/recubrimientos-anticorrosivos-industria-quimica-petroquimica--230x230.png',
-                                  width: 28,
-                                  height: 28,
+                                  width: 10,
+                                  height: 10,
                                 ),
                                 title: 'Lab Results',
                                 color: const Color.fromARGB(255, 255, 255, 255),
