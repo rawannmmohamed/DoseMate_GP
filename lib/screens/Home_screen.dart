@@ -10,6 +10,7 @@ import 'package:flutter_application_1/screens/SearchScreen.dart';
 import 'package:flutter_application_1/screens/SymptomsScreen.dart';
 import 'package:flutter_application_1/screens/Lab_Results.dart';
 
+
 class MenuButton extends StatelessWidget {
   final dynamic icon;
   final String title;
@@ -88,7 +89,7 @@ class MenuButton extends StatelessWidget {
                     title,
                     textAlign: TextAlign.start,
                     style: TextStyle(
-                      fontSize: isSearchButton ? 15 : 17,
+                      fontSize: isSearchButton ? 13 : 14,
                       fontWeight: FontWeight.bold,
                       color: color,
                     ),
@@ -163,7 +164,7 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const LoginScreen()),
+                        MaterialPageRoute(builder: (context) =>  LoginScreen()),
                       );
                     },
                   ),

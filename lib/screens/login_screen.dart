@@ -1,12 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import 'Forget_Password_Screen.dart';
 import 'register_screen.dart';
 import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
-
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -83,7 +82,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           decoration: const BoxDecoration(
                             border: Border(
                                 bottom: BorderSide(
-                                    color: Color.fromARGB(255, 86, 183, 221))), // Add a bottom border
+                                    color: Color.fromARGB(255, 86, 183,
+                                        221))), // Add a bottom border
                           ),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -93,11 +93,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 icon: Icon(Icons.mail),
                                 border: InputBorder.none,
                                 hintText: 'Email',
-                                hintStyle: TextStyle(
-                                    color: Colors.white),
+                                hintStyle: TextStyle(color: Colors.white),
                               ),
-                              style:
-                                  const TextStyle(color: Colors.white), 
+                              style: const TextStyle(color: Colors.white),
                             ),
                           ),
                         ),
@@ -107,7 +105,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           decoration: const BoxDecoration(
                             border: Border(
                                 bottom: BorderSide(
-                                    color: Color.fromARGB(255, 86, 183, 221))), // Add a bottom border
+                                    color: Color.fromARGB(255, 86, 183,
+                                        221))), // Add a bottom border
                           ),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -120,8 +119,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 hintStyle: TextStyle(
                                     color: Colors.white), // Text color
                               ),
-                              style:
-                                  const TextStyle(color: Colors.white), // Text color
+                              style: const TextStyle(
+                                  color: Colors.white), // Text color
                             ),
                           ),
                         ),
@@ -163,7 +162,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const RegisterScreen(),
+                                    builder: (context) =>
+                                        const RegisterScreen(),
                                   ),
                                 );
                               },
@@ -172,6 +172,33 @@ class _LoginScreenState extends State<LoginScreen> {
                                 style: TextStyle(
                                   color: Color.fromARGB(255, 203, 15, 15),
                                   fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10.0,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        ForgotPasswordScreen(),
+                                  ),
+                                );
+                              },
+                              child: const Text(
+                                'Forget Password',
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 203, 15, 15),
+                                  fontSize: 15,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
