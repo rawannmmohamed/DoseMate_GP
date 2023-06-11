@@ -9,7 +9,7 @@ import 'package:flutter_application_1/screens/diet_screen.dart';
 import 'package:flutter_application_1/screens/SearchScreen.dart';
 import 'package:flutter_application_1/screens/SymptomsScreen.dart';
 import 'package:flutter_application_1/screens/Lab_Results.dart';
-
+import 'package:flutter_application_1/screens/Notification_screen.dart';
 
 class MenuButton extends StatelessWidget {
   final dynamic icon;
@@ -133,6 +133,16 @@ class HomeScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const DiagnosePage()),
+                      );
+                    },
+                  ),
+                   IconButton(
+                    icon: const Icon(Icons.notifications),
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ReminderScreen()),
                       );
                     },
                   ),
