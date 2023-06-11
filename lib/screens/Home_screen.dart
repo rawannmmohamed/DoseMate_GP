@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/chat/chat_Screen.dart';
 import 'package:flutter_application_1/screens/Emergency.dart';
 import 'package:flutter_application_1/screens/login_screen.dart';
 import 'package:flutter_application_1/screens/profile_screen.dart';
@@ -16,7 +17,7 @@ class MenuButton extends StatelessWidget {
   final VoidCallback onPressed;
   final bool isSearchButton;
 
-  const MenuButton({
+  const MenuButton({super.key, 
     required this.icon,
     required this.title,
     required this.color,
@@ -31,9 +32,9 @@ class MenuButton extends StatelessWidget {
         borderRadius: isSearchButton ? BorderRadius.circular(16) : BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
-            color: Color.fromARGB(200, 23, 13, 72),
+            color: const Color.fromARGB(200, 23, 13, 72),
             blurRadius: 11,
-            offset: isSearchButton ? Offset(0, 3): Offset(0, 2),
+            offset: isSearchButton ? const Offset(0, 3): const Offset(0, 2),
           ),
         ],
       ),
@@ -44,16 +45,16 @@ class MenuButton extends StatelessWidget {
             RoundedRectangleBorder(
               borderRadius: isSearchButton ? BorderRadius.circular(16) : BorderRadius.circular(16),
               side: BorderSide(
-                color:  isSearchButton ? Colors.blue : Color.fromARGB(255, 23, 13, 72),
+                color:  isSearchButton ? Colors.blue : const Color.fromARGB(255, 23, 13, 72),
                 width: 1.0,
               ),
             ),
           ),
           padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-            EdgeInsets.fromLTRB(12, 0, 16, 0),
+            const EdgeInsets.fromLTRB(12, 0, 16, 0),
           ),
          backgroundColor: MaterialStateProperty.all<Color>(
-            isSearchButton ? Colors.white : Color.fromARGB(255, 23, 13, 72),
+            isSearchButton ? Colors.white : const Color.fromARGB(255, 23, 13, 72),
         ),
         ),
         child: Row(
@@ -61,7 +62,7 @@ class MenuButton extends StatelessWidget {
           children: [
             if (icon is IconData)
               Padding(
-                padding: EdgeInsets.only(right: 8),
+                padding: const EdgeInsets.only(right: 8),
                 child: Icon(
                   icon,
                   size: isSearchButton ? 42 : 56,
@@ -69,12 +70,12 @@ class MenuButton extends StatelessWidget {
                 ),
               ),
             if (icon is Image)
-              Container(
+              SizedBox(
                 width: isSearchButton ? 28 : 50,
                 height: isSearchButton ? 28 : 100,
                 child: icon,
               ),
-            SizedBox(width: 5),
+            const SizedBox(width: 5),
             Expanded(
               child: Container(
                 constraints: BoxConstraints(
@@ -103,6 +104,8 @@ class MenuButton extends StatelessWidget {
 }
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -117,7 +120,7 @@ class HomeScreen extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 23, 13, 72),
                 borderRadius: BorderRadius.vertical(top: Radius.circular(500)),
               ),
@@ -125,8 +128,8 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   IconButton(
-                    icon: Icon(CupertinoIcons.profile_circled),
-                    color: Color.fromARGB(255, 255, 255, 255),
+                    icon: const Icon(CupertinoIcons.profile_circled),
+                    color: const Color.fromARGB(255, 255, 255, 255),
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -135,22 +138,32 @@ class HomeScreen extends StatelessWidget {
                     },
                   ),
                   IconButton(
-                    icon: Icon(CupertinoIcons.add_circled),
-                    color: Color.fromARGB(255, 255, 255, 255),
+                    icon: const Icon(CupertinoIcons.add_circled),
+                    color: const Color.fromARGB(255, 255, 255, 255),
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => DiagnosePage()),
+                        MaterialPageRoute(builder: (context) => const DiagnosePage()),
+                      );
+                    },
+                  ),
+                   IconButton(
+                    icon: const Icon(Icons.chat),
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const ChatScreen()),
                       );
                     },
                   ),
                   IconButton(
-                    icon: Icon(Icons.logout_rounded),
-                    color: Color.fromARGB(255, 255, 255, 255),
+                    icon: const Icon(Icons.logout_rounded),
+                    color: const Color.fromARGB(255, 255, 255, 255),
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                        MaterialPageRoute(builder: (context) => const LoginScreen()),
                       );
                     },
                   ),
@@ -163,9 +176,9 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(height: 80),
+                  const SizedBox(height: 80),
                   SingleChildScrollView(
-                    padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
                     child: Column(
                       children: [
                         MenuButton(
@@ -175,20 +188,20 @@ class HomeScreen extends StatelessWidget {
                             height: 28,
                           ),
                           title: 'Search for drugs',
-                          color: Color.fromARGB(255, 86, 183, 221),
+                          color: const Color.fromARGB(255, 86, 183, 221),
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => SearchScreen()),
+                              MaterialPageRoute(builder: (context) => const SearchScreen()),
                             );
                           },
                           isSearchButton: true,
                         ),
-                        SizedBox(height: 50), // Adjust the height as desired
+                        const SizedBox(height: 50), // Adjust the height as desired
                         Container(
                           alignment: Alignment.centerLeft,
-                          padding: EdgeInsets.only(left: 16),
-                          child: Text(
+                          padding: const EdgeInsets.only(left: 16),
+                          child: const Text(
                             'Welcome back !',
                             
                             style: TextStyle(
@@ -201,8 +214,8 @@ class HomeScreen extends StatelessWidget {
                         ),
                         Container(
                           alignment: Alignment.centerLeft,
-                          padding: EdgeInsets.only(left: 16),
-                          child: Text(
+                          padding: const EdgeInsets.only(left: 16),
+                          child: const Text(
                             'How are you feeling today ? :)',
                             style: TextStyle(
                               fontSize: 22,
@@ -211,7 +224,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 60), // Adjust the height as desired
+                        const SizedBox(height: 60), // Adjust the height as desired
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -223,16 +236,16 @@ class HomeScreen extends StatelessWidget {
                                   height: 28,
                                 ),
                                 title: 'Drug List',
-                                color: Color.fromARGB(255, 255, 255, 255),
+                                color: const Color.fromARGB(255, 255, 255, 255),
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => DrugList()),
+                                    MaterialPageRoute(builder: (context) => const DrugList()),
                                   );
                                 },
                               ),
                             ),
-                            SizedBox(width: 14),
+                            const SizedBox(width: 14),
                             Expanded(
                               child: MenuButton(
                                 icon: Image.network(
@@ -241,18 +254,18 @@ class HomeScreen extends StatelessWidget {
                                   height: 28,
                                 ),
                                 title: 'Diet',
-                                color: Color.fromARGB(255, 255, 255, 255),
+                                color: const Color.fromARGB(255, 255, 255, 255),
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => Diet()),
+                                    MaterialPageRoute(builder: (context) => const Diet()),
                                   );
                                 },
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 14),
+                        const SizedBox(height: 14),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -264,16 +277,16 @@ class HomeScreen extends StatelessWidget {
                                   height: 28,
                                 ),
                                 title: 'Emergency',
-                                color: Color.fromARGB(255, 255, 255, 255),
+                                color: const Color.fromARGB(255, 255, 255, 255),
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => Emergency()),
+                                    MaterialPageRoute(builder: (context) => const Emergency()),
                                   );
                                 },
                               ),
                             ),
-                            SizedBox(width: 14),
+                            const SizedBox(width: 14),
                             Expanded(
                               child: MenuButton(
                                 icon: Image.network(
@@ -282,11 +295,11 @@ class HomeScreen extends StatelessWidget {
                                   height: 28,
                                 ),
                                 title: 'Lab Results',
-                                color: Color.fromARGB(255, 255, 255, 255),
+                                color: const Color.fromARGB(255, 255, 255, 255),
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => LabResultsScreen()),
+                                    MaterialPageRoute(builder: (context) => const LabResultsScreen()),
                                   );
                                 },
                               ),

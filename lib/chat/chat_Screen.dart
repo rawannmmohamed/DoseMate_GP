@@ -27,7 +27,7 @@ class _ChatScreenState extends State<ChatScreen> {
   void initState() {
     chatGPT = OpenAI.instance.build(
         token: "03853604eemsh193b7b5125010fap1eda79jsn4426f95fdeb1",
-        baseOption: HttpSetup(receiveTimeout: Duration(seconds: 10)));
+        baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 10)));
     super.initState();
   }
 
@@ -116,7 +116,7 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("Chatbot"),backgroundColor:Color.fromARGB(255, 23, 13, 72)),
+        appBar: AppBar(title: const Text("Chatbot"),backgroundColor:const Color.fromARGB(255, 23, 13, 72)),
         body: SafeArea(
           child: Column(
             children: [

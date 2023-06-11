@@ -3,6 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class UserProfilePage extends StatefulWidget {
+  const UserProfilePage({super.key});
+
   @override
   _UserProfilePageState createState() => _UserProfilePageState();
 }
@@ -56,14 +58,15 @@ class _UserProfilePageState extends State<UserProfilePage> {
         .set(userData);
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 23, 13, 72),
-        title: Text('Profile'),
+        backgroundColor: const Color.fromARGB(255, 23, 13, 72),
+        title: const Text('Profile'),
         actions: [
           IconButton(
-            icon: Icon(Icons.save),
+            icon: const Icon(Icons.save),
             onPressed: _saveProfile,
           ),
         ],
@@ -71,121 +74,121 @@ class _UserProfilePageState extends State<UserProfilePage> {
       body: SingleChildScrollView(
         child: Container(
           color: Colors.white,
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 16),
-              Text('Name',
+              const SizedBox(height: 16),
+              const Text('Name',
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 23, 13, 72))),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               TextField(
                 controller: _nameController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: UnderlineInputBorder(
                     borderSide: BorderSide(color: Color.fromARGB(255, 23, 13, 72)),
                   ),
                   hintText: 'Enter your name',
                   hintStyle: TextStyle(color: Color.fromARGB(255, 23, 13, 72)),
                 ),
-                style: TextStyle(color: Color.fromARGB(255, 23, 13, 72)),
+                style: const TextStyle(color: Color.fromARGB(255, 23, 13, 72)),
               ),
-              SizedBox(height: 16),
-              Text('Age',
+              const SizedBox(height: 16),
+              const Text('Age',
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 23, 13, 72))),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               TextField(
                 controller: _ageController,
                 keyboardType: TextInputType.number,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: UnderlineInputBorder(
                     borderSide: BorderSide(color: Color.fromARGB(255, 23, 13, 72)),
                   ),
                   hintText: 'Enter your age',
                   hintStyle: TextStyle(color: Color.fromARGB(255, 23, 13, 72)),
                 ),
-                style: TextStyle(color: Color.fromARGB(255, 23, 13, 72)),
+                style: const TextStyle(color: Color.fromARGB(255, 23, 13, 72)),
               ),
-              SizedBox(height: 16),
-              Text('Weight',
+              const SizedBox(height: 16),
+              const Text('Weight',
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 23, 13, 72))),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               TextField(
                 controller: _weightController,
                 keyboardType: TextInputType.number,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: UnderlineInputBorder(
                     borderSide: BorderSide(color: Color.fromARGB(255, 23, 13, 72)),
                   ),
                   hintText: 'Enter your weight',
                   hintStyle: TextStyle(color: Color.fromARGB(255, 23, 13, 72)),
                 ),
-                style: TextStyle(color: Color.fromARGB(255, 23, 13, 72)),
+                style: const TextStyle(color: Color.fromARGB(255, 23, 13, 72)),
               ),
-              SizedBox(height: 16),
-              Text('Current medication intake',
+              const SizedBox(height: 16),
+              const Text('Current medication intake',
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 23, 13, 72))),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               TextField(
                 controller: _medicationController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: UnderlineInputBorder(
                     borderSide: BorderSide(color: Color.fromARGB(255, 23, 13, 72)),
                   ),
                   hintText: 'Enter your current medication intake',
                   hintStyle: TextStyle(color: Color.fromARGB(255, 23, 13, 72)),
                 ),
-                style: TextStyle(color: Color.fromARGB(255, 23, 13, 72)),
+                style: const TextStyle(color: Color.fromARGB(255, 23, 13, 72)),
               ),
-              SizedBox(height: 16),
-              Text('Chronic diseases',
+              const SizedBox(height: 16),
+              const Text('Chronic diseases',
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 23, 13, 72))),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               TextField(
                 controller: _diseaseController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.blue),
                   ),
                   hintText: 'Enter your chronic diseases',
                   hintStyle: TextStyle(color: Color.fromARGB(255, 23, 13, 72)),
                 ),
-                style: TextStyle(color: Color.fromARGB(255, 23, 13, 72)),
+                style: const TextStyle(color: Color.fromARGB(255, 23, 13, 72)),
               ),
-              SizedBox(height: 16),
-              Text('Dietary prohibitions',
+              const SizedBox(height: 16),
+              const Text('Dietary prohibitions',
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 23, 13, 72))),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               TextField(
                 controller: _dietaryController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: UnderlineInputBorder(
                     borderSide: BorderSide(color: Color.fromARGB(255, 23, 13, 72)),
                   ),
                   hintText: 'Enter your dietary prohibitions',
                   hintStyle: TextStyle(color: Color.fromARGB(255, 23, 13, 72)),
                 ),
-                style: TextStyle(color: Color.fromARGB(255, 23, 13, 72)),
+                style: const TextStyle(color: Color.fromARGB(255, 23, 13, 72)),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
             ],
           ),
         ),

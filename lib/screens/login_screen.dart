@@ -5,6 +5,8 @@ import 'register_screen.dart';
 import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -48,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Container(
             height: double.infinity,
             width: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/images/background.png"),
                 fit: BoxFit.fill,
@@ -64,9 +66,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Container(
                     child: ListView(
                       shrinkWrap: true,
-                      padding: EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(16),
                       children: [
-                        Text(
+                        const Text(
                           'Already a member ?',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -75,10 +77,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           textAlign: TextAlign.left,
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Container(
                           height: 50,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             border: Border(
                                 bottom: BorderSide(
                                     color: Color.fromARGB(255, 86, 183, 221))), // Add a bottom border
@@ -87,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             padding: const EdgeInsets.symmetric(horizontal: 40),
                             child: TextField(
                               controller: _emailcontroller,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 icon: Icon(Icons.mail),
                                 border: InputBorder.none,
                                 hintText: 'Email',
@@ -95,14 +97,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                     color: Colors.white),
                               ),
                               style:
-                                  TextStyle(color: Colors.white), 
+                                  const TextStyle(color: Colors.white), 
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Container(
                           height: 50,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             border: Border(
                                 bottom: BorderSide(
                                     color: Color.fromARGB(255, 86, 183, 221))), // Add a bottom border
@@ -111,7 +113,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             padding: const EdgeInsets.symmetric(horizontal: 40),
                             child: TextField(
                               controller: _passwordcontroller,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 icon: Icon(Icons.lock),
                                 border: InputBorder.none,
                                 hintText: 'Password',
@@ -119,22 +121,22 @@ class _LoginScreenState extends State<LoginScreen> {
                                     color: Colors.white), // Text color
                               ),
                               style:
-                                  TextStyle(color: Colors.white), // Text color
+                                  const TextStyle(color: Colors.white), // Text color
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         /////signinbutton
                         GestureDetector(
                           onTap: signIn,
                           child: Container(
-                            padding: EdgeInsets.all(16),
+                            padding: const EdgeInsets.all(16),
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 86, 183, 221)
+                              color: const Color.fromARGB(255, 86, 183, 221)
                                   .withOpacity(0.90),
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Text(
                                 'Sign in',
                                 style: TextStyle(
@@ -143,11 +145,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
+                            const Text(
                               "Not a member ? ",
                               style: TextStyle(
                                 fontSize: 16,
@@ -155,17 +157,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                 color: Color.fromARGB(255, 255, 255, 255),
                               ),
                             ),
-                            SizedBox(width: 5),
+                            const SizedBox(width: 5),
                             GestureDetector(
                               onTap: () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => RegisterScreen(),
+                                    builder: (context) => const RegisterScreen(),
                                   ),
                                 );
                               },
-                              child: Text(
+                              child: const Text(
                                 'Sign Up',
                                 style: TextStyle(
                                   color: Color.fromARGB(255, 203, 15, 15),

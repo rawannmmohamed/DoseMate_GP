@@ -14,7 +14,7 @@ class FirebaseAPI {
   }) async {
     try {
       await drugListRef.add({
-        'id': Uuid().v1(),
+        'id': const Uuid().v1(),
         'commercial_name': commercialName,
         'active_substance': activeSubstance,
         'side_effects': sideEffects,

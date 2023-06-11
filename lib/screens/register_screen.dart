@@ -43,7 +43,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           Container(
             height: double.infinity,
             width: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/images/background.png"),
                 fit: BoxFit.fill,
@@ -59,9 +59,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   child: Container(
                     child: ListView(
                       shrinkWrap: true,
-                      padding: EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(16),
                       children: [
-                        Text(
+                        const Text(
                           'Create Account',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -70,10 +70,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                           textAlign: TextAlign.left,
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Container(
                           height: 50,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
                                 color: Color.fromARGB(255, 86, 183, 221),
@@ -84,7 +84,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             padding: const EdgeInsets.symmetric(horizontal: 40),
                             child: TextField(
                               controller: _emailController,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 icon: Icon(Icons.mail),
                                 border: InputBorder.none,
                                 hintText: 'Email',
@@ -92,14 +92,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     color: Colors.white),
                               ),
                               style:
-                                  TextStyle(color: Colors.white), 
+                                  const TextStyle(color: Colors.white), 
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Container(
                           height: 50,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
                                 color: Color.fromARGB(255, 86, 183, 221),
@@ -110,7 +110,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             padding: const EdgeInsets.symmetric(horizontal: 40),
                             child: TextField(
                               controller: _passwordController,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 icon: Icon(Icons.lock),
                                 border: InputBorder.none,
                                 hintText: 'Password',
@@ -118,23 +118,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     color: Colors.white), // Text color
                               ),
                               style:
-                                  TextStyle(color: Colors.white), // Text color
+                                  const TextStyle(color: Colors.white), // Text color
                             ),
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         ElevatedButton(
                           onPressed: register,
                           style: ElevatedButton.styleFrom(
-                            primary: Color.fromARGB(255, 86, 183, 221)
+                            backgroundColor: const Color.fromARGB(255, 86, 183, 221)
                                 .withOpacity(0.90),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
                           ),
                           child: Container(
-                            padding: EdgeInsets.all(16),
-                            child: Center(
+                            padding: const EdgeInsets.all(16),
+                            child: const Center(
                               child: Text(
                                 'Register',
                                 style: TextStyle(
@@ -144,7 +144,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                       ],
                     ),
                   ),

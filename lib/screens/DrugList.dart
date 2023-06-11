@@ -35,11 +35,11 @@ class _DrugListState extends State<DrugList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 23, 13, 72),
-        title: Text('Drug List'),
+        backgroundColor: const Color.fromARGB(255, 23, 13, 72),
+        title: const Text('Drug List'),
       ),
       body: drugs == null
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : ListView.builder(
               itemCount: drugs!.length,
               itemBuilder: (context, index) {
@@ -51,9 +51,9 @@ class _DrugListState extends State<DrugList> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text('Active Substance: ${drug['active_substance']}'),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                         Text('Side Effects: ${drug['side_effects']}'),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                         Text('Conditions treated: ${drug['conditions_treated']}'),
                       ],
                     ),

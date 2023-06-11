@@ -3,6 +3,8 @@
 
 
   class SearchScreen extends StatefulWidget {
+  const SearchScreen({super.key});
+
     @override
     _SearchScreenState createState() => _SearchScreenState();
   }
@@ -45,11 +47,11 @@ Widget build(BuildContext context) {
     backgroundColor: Colors.white,
     appBar: AppBar(
       
-      title: Text(
+      title: const Text(
         "Search Drugs",
         style: TextStyle(color: Colors.white),
       ),
-      backgroundColor:  Color.fromARGB(255, 23, 13, 72),
+      backgroundColor:  const Color.fromARGB(255, 23, 13, 72),
     ),
     body: Column(
       children: [
@@ -64,7 +66,7 @@ Widget build(BuildContext context) {
                   color: Colors.grey.withOpacity(0.3),
                   spreadRadius: 1,
                   blurRadius: 5,
-                  offset: Offset(0, 2),
+                  offset: const Offset(0, 2),
                 ),
               ],
             ),
@@ -73,7 +75,7 @@ Widget build(BuildContext context) {
                 Expanded(
                   child: TextField(
                     controller: _searchController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: "Search",
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
@@ -81,7 +83,7 @@ Widget build(BuildContext context) {
                   ),
                 ),
                 IconButton(
-                  icon: Icon(Icons.search),
+                  icon: const Icon(Icons.search),
                   onPressed: () {
                     setState(() {
                       _searchText = _searchController.text;
@@ -101,7 +103,7 @@ Widget build(BuildContext context) {
               var drug = _searchResult[index].data() as Map<String, dynamic>;
               return Card(
                 elevation: 5,
-                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 child: ListTile(
                   title: Text(drug['commercial_name']),
@@ -109,9 +111,9 @@ Widget build(BuildContext context) {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Active Substance: ${drug['active_substance']}'),
-                      SizedBox(height: 4),
+                      const SizedBox(height: 4),
                       Text('Side Effects: ${drug['side_effects']}'),
-                      SizedBox(height: 4),
+                      const SizedBox(height: 4),
                       Text('Conditions treated: ${drug['conditions_treated']}'),
                     ],
                   ),

@@ -6,6 +6,8 @@
 import 'package:flutter/material.dart';
 
 class LabResultsScreen extends StatefulWidget {
+  const LabResultsScreen({super.key});
+
   @override
   _LabResultsScreenState createState() => _LabResultsScreenState();
 }
@@ -48,16 +50,16 @@ class _LabResultsScreenState extends State<LabResultsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 23, 13, 72),
-        title: Text('Lab Results'),
+        backgroundColor: const Color.fromARGB(255, 23, 13, 72),
+        title: const Text('Lab Results'),
       ),
       body: Container(
-        padding: EdgeInsets.all(24.0),
+        padding: const EdgeInsets.all(24.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             DropdownButtonFormField<String>(
-              hint: Text("Select a test"),
+              hint: const Text("Select a test"),
               value: _selectedTest,
               onChanged: (String? value) {
                 setState(() {
@@ -67,22 +69,22 @@ class _LabResultsScreenState extends State<LabResultsScreen> {
               },
               items: _allTests
                   .map((test) => DropdownMenuItem(
-                        child: Text(test),
                         value: test,
+                        child: Text(test),
                       ))
                   .toList(),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             Text(
               _selectedTest != null ? "Standard reference values: ${_testReferenceValues[_selectedTest]}" : "",
-              style: TextStyle(fontSize: 16.0),
+              style: const TextStyle(fontSize: 16.0),
             ),
-            SizedBox(height: 32.0),
+            const SizedBox(height: 32.0),
             if (_selectedTest == "Hemoglobin")
               TextFormField(
                 controller: valueResult,
-                decoration: InputDecoration(labelText: "Enter your Hemoglobin level (g/dL)"),
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                decoration: const InputDecoration(labelText: "Enter your Hemoglobin level (g/dL)"),
+                keyboardType: const TextInputType.numberWithOptions(decimal: true),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter a value';
@@ -103,8 +105,8 @@ class _LabResultsScreenState extends State<LabResultsScreen> {
             if (_selectedTest == "HbA1c")
               TextFormField(
                 controller: valueResult,
-                decoration: InputDecoration(labelText: "Enter your HbA1c level (%)"),
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                decoration: const InputDecoration(labelText: "Enter your HbA1c level (%)"),
+                keyboardType: const TextInputType.numberWithOptions(decimal: true),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter a value';
@@ -129,7 +131,7 @@ class _LabResultsScreenState extends State<LabResultsScreen> {
                     width: 150.0,
                     child: TextFormField(
                       controller: valueResult,
-                      decoration: InputDecoration(labelText: "Systolic"),
+                      decoration: const InputDecoration(labelText: "Systolic"),
                       keyboardType: TextInputType.number,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -149,12 +151,12 @@ class _LabResultsScreenState extends State<LabResultsScreen> {
                          },
                     ),
                   ),
-                  SizedBox(width: 16.0),
+                  const SizedBox(width: 16.0),
                   SizedBox(
                     width: 150.0,
                     child: TextFormField(
                       controller: valueResult1,
-                      decoration: InputDecoration(labelText: "Diastolic"),
+                      decoration: const InputDecoration(labelText: "Diastolic"),
 keyboardType: TextInputType.number,
 validator: (value) {
 if (value == null || value.isEmpty) {
@@ -183,7 +185,7 @@ SizedBox(
 width: 150.0,
 child: TextFormField(
   controller: valueResult,
-decoration: InputDecoration(labelText: "LDL"),
+decoration: const InputDecoration(labelText: "LDL"),
 keyboardType: TextInputType.number,
 validator: (value) {
 if (value == null || value.isEmpty) {
@@ -202,12 +204,12 @@ return null;
     
 ),
 ),
-SizedBox(width: 16.0),
+const SizedBox(width: 16.0),
 SizedBox(
 width: 150.0,
 child: TextFormField(
   controller: valueResult1,
-decoration: InputDecoration(labelText: "HDL"),
+decoration: const InputDecoration(labelText: "HDL"),
 keyboardType: TextInputType.number,
 validator: (value) {
 if (value == null || value.isEmpty) {
@@ -229,11 +231,11 @@ onChanged: (value) {
 ),
 ],
 ),
-SizedBox(height: 32.0),
+const SizedBox(height: 32.0),
 if(valueResult.text!='')
 ElevatedButton(
-child: Text("Show Indicator"), style: ElevatedButton.styleFrom(
-          primary: Color.fromARGB(255, 23, 13, 72),
+style: ElevatedButton.styleFrom(
+          backgroundColor: const Color.fromARGB(255, 23, 13, 72),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
             
@@ -242,11 +244,11 @@ child: Text("Show Indicator"), style: ElevatedButton.styleFrom(
 onPressed:
 // _showIndicatorButtonEnabled ?
   () {
-    if(_selectedTest=='HbA1c')
+    if(_selectedTest=='HbA1c') {
       _userHa1c=double.parse(valueResult.text);
-    else if(_selectedTest=='Hemoglobin')
+    } else if(_selectedTest=='Hemoglobin') {
       _userHemoglobin=double.parse(valueResult.text);
-    else if(_selectedTest=='Blood Pressure')
+    } else if(_selectedTest=='Blood Pressure')
       {
         _userSystolicBP=int.parse(valueResult.text);
         _userDiastolicBP=int.parse(valueResult1.text);
@@ -258,6 +260,7 @@ onPressed:
     print("Show Indicator button pressed!");
     _calculateIndicator();
   } ,
+child: const Text("Show Indicator"),
 ),
 ],
 ),
@@ -333,7 +336,7 @@ title: Text("$_selectedTest Indicator Result"),
 content: Text(result),
 actions: <Widget>[
 TextButton(
-child: Text('OK'),
+child: const Text('OK'),
 onPressed: () {
 Navigator.of(context).pop();
 _resetInputValues();

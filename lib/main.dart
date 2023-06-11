@@ -9,7 +9,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     name: 'flutter_application_1',
-    options: FirebaseOptions(
+    options: const FirebaseOptions(
       appId: '1:963251815440:android:37a9ebaf2d5f581468f695' ,
       messagingSenderId: "963251815440",
       apiKey: 'AIzaSyAfT6PwYJKVAG29ktctD4gmT2A1moSYnSE',
@@ -17,10 +17,12 @@ void main() async {
       databaseURL: "https://myfirstflutterproject-74fc7-default-rtdb.firebaseio.com",
     ),
   );
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
             GoogleFonts.josefinSansTextTheme(Theme.of(context).textTheme),
         
         visualDensity: VisualDensity.adaptivePlatformDensity),
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DiagnosePage extends StatefulWidget {
+  const DiagnosePage({super.key});
+
   @override
   _DiagnosePageState createState() => _DiagnosePageState();
 }
@@ -16,12 +18,12 @@ class _DiagnosePageState extends State<DiagnosePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Diagnosis'),
-        backgroundColor: Color.fromARGB(255, 23, 13, 72),
+        title: const Text('Diagnosis'),
+        backgroundColor: const Color.fromARGB(255, 23, 13, 72),
       ),
       body: Container(
         color: Colors.white,
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -29,7 +31,7 @@ class _DiagnosePageState extends State<DiagnosePage> {
   stream: _diseasesCollection.snapshots(),
   builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
     if (!snapshot.hasData) {
-      return CircularProgressIndicator();
+      return const CircularProgressIndicator();
     }
     List<String> allSymptoms = [];
     for (var doc in snapshot.data!.docs) {
@@ -37,11 +39,11 @@ class _DiagnosePageState extends State<DiagnosePage> {
       allSymptoms.addAll(symptoms);
     }
     _allSymptoms = allSymptoms.toSet().toList(); // remove duplicates
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: DropdownButton<String>(
         value: _selectedSymptom,
-        hint: Text('Select a symptom'),
+        hint: const Text('Select a symptom'),
         onChanged: (String? value) {
           setState(() {
             _selectedSymptom = value;
@@ -57,7 +59,7 @@ class _DiagnosePageState extends State<DiagnosePage> {
                   ),
                 ))
             .toList(),
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 18.0,
           color: Colors.black,
           fontWeight: FontWeight.bold,
@@ -74,10 +76,10 @@ class _DiagnosePageState extends State<DiagnosePage> {
 ),
 
 
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             ElevatedButton(
-              child: Text("Diagnose"), style: ElevatedButton.styleFrom(
-            primary: Color.fromARGB(255, 23, 13, 72),
+              style: ElevatedButton.styleFrom(
+            backgroundColor: const Color.fromARGB(255, 23, 13, 72),
             shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
             
@@ -85,7 +87,7 @@ class _DiagnosePageState extends State<DiagnosePage> {
               
               onPressed: () async {
                 if (_selectedSymptom == null) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                     content: Text('Please select a symptom.'),
                   ));
                   return;
@@ -104,7 +106,7 @@ class _DiagnosePageState extends State<DiagnosePage> {
                   }
                 }
                 if (matchingDocuments.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                     content: Text('No matching disease found.'),
                   ));
                 } else {
@@ -117,6 +119,7 @@ class _DiagnosePageState extends State<DiagnosePage> {
                   );
                 }
               },
+              child: const Text("Diagnose"),
               
               
             ),
@@ -130,50 +133,50 @@ class _DiagnosePageState extends State<DiagnosePage> {
 class DiseaseDetailsPage extends StatelessWidget {
   final DocumentSnapshot document;
 
-  DiseaseDetailsPage({required this.document});
+  const DiseaseDetailsPage({super.key, required this.document});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Disease Details"),
-        backgroundColor: Color.fromARGB(255, 23, 13, 72),
+        title: const Text("Disease Details"),
+        backgroundColor: const Color.fromARGB(255, 23, 13, 72),
       ),
       body: Container(
         color: Colors.white,
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: ListView(
           children: [
             Text(
               "Symptoms: ${document['Symptoms']}",
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Disease name: ${document['Disease name']}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 10.0),
+                const SizedBox(height: 10.0),
                 Text(
                   'Treatment: ${document['Treatment']}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18.0,
                     fontStyle: FontStyle.italic,
                   ),
                 ),
-                SizedBox(height: 10.0),
+                const SizedBox(height: 10.0),
                 Text(
                   'Alternative treatment: ${document['Alternative treatment']}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18.0,
                     fontStyle: FontStyle.italic,
                   ),
